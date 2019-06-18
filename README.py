@@ -1,5 +1,5 @@
 # coin_toss
-heads or tails project
+#heads or tails project
 # this does not seem to consistantly work. almost seems to randomly select true or false as well.
 
 
