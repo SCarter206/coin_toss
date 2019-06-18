@@ -1,6 +1,7 @@
 # coin_toss
 #heads or tails project
 # this does not seem to consistantly work. almost seems to randomly select true or false as well.
+#aware there are other methods, just using tools learned so far.
 
 
 import random
