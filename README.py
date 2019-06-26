@@ -16,6 +16,7 @@ Traceback (most recent call last):
 TypeError: compare() missing 1 required positional argument: 'user_coin_choice'
 """
 # ive google searched the rules on positional arguments but im not finding literature regarding the whole file. Any advice appreciated.
+# just a beginner
 
 import random
 bank = 100
