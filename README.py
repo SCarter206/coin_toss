@@ -1,5 +1,5 @@
 import random
-
+#improved argument positions, clearer notes, initialized variables(bank, y), user_bank wont add or subtract just provides uneffected bank value
 class coin_proccess():
     bank = 0
     y = 0
