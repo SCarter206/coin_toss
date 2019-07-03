@@ -1,16 +1,3 @@
-
-
-1 of 8
-(no subject)
-
-sean carter <seans206email@gmail.com>
-Attachments
-Thu, Jun 27, 11:52 PM (5 days ago)
-to brittany.r.jones
-
-
-Attachments area
-
 import random
 
 class coin_proccess():
