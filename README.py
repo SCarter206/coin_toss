@@ -1,74 +1,52 @@
-# coin_toss
-#heads or tails project in python 3
-#im getting a positional error code:
-"""
-Welcome to heads or tails. You'll start your bank with $100
-0 for heads and 1 for tails
-1
-you chose tails
-how much would you like to bet
-1
-Traceback (most recent call last):
-  File "coin_toss.py", line 53, in <module>
-    main()
-  File "coin_toss.py", line 48, in main
-    obj.compare()
-TypeError: compare() missing 1 required positional argument: 'user_coin_choice'
-"""
-# ive google searched the rules on positional arguments but im not finding literature regarding the whole file. Any advice appreciated.
-# just a beginner
+#project in python 3
+#program name: coin toss with gamble
 
 import random
-bank = 100
 
-class coin_proccess():
-    def user_coin_choice(y):
-        y = eval(input("0 for heads and 1 for tails\n"))
-        if y == 0:
-            print("you chose heads")
-            return "heads"
-        elif y == 1:
-            print("you chose tails")
-            return "tails"
-        else:
-            return "just type 0 or 1 and press enter"
+#recives users choice of heads or tails using 0 and 1
+#compares and returns true of false
+def coin_matter():
+    user_choice = input("Input 0 for heads or 1 for tails: ")
+    list = [0, 1]
+    result = random.choice(list)
+    if int(user_choice) == int(result):
+        return True
+    else:
+        return False
 
-    def get_user_bet(z):
-        z = eval(input("how much would you like to bet\n"))
-        return z
+#recieves users bet amount
+def bet_amount():
+    y = input("how much would you like to bet: ")
+    return y
 
-    def coin_flip(list, x):
-        list = [0, 1]
-        x = random.choice(list)
-        if x == 0:
-            return("heads")
-        elif x == 1:
-            return("tails")
-
-    def compare(coin_flip, user_coin_choice):
-        if coin_flip() == user_coin_choice():
-            return "you won"
-        else:
-            return "sorry try again"
-
-    def user_bank(compare):
-        if compare() == "you won":
-            return "you now have " + bank + z
-        else:
-            return "you now have " + bank - z
+#verifies that the user is not betting more then they have
+def bet_vs_bank(bank_amount):
+    bet = bet_amount()
+    if int(bet) > bank_amount:
+        print("you cant bet more then you have, try again")
+        return bet_vs_bank(bank_amount)
+    else:
+        return bet
 
 
-def main():
-    print("Welcome to heads or tails. You'll start your bank with $100")
+#loops until bank amount reaches zero
+def bank():
+    bank_amount = 100
+    while bank_amount > 0:
+        bet_amount = int(bet_vs_bank(bank_amount))
+        coin_result = coin_matter()
+        if coin_result == True and bank_amount > 0:
+            print("you won and now have")
+            bank_amount += bet_amount
+            print(bank_amount)
+        elif coin_result == False and bank_amount > 0:
+            print("you lost and now have")
+            bank_amount -= bet_amount
+            print(bank_amount)
+    else:
+        return "Have a shot at try again"
 
-    obj = coin_proccess()
-    obj.user_coin_choice()
-    obj.get_user_bet()
-    obj.coin_flip('x')
-    obj.compare()
-    obj.user_bank()
-
-
-if __name__ == "__main__":
-    main()
+print("The game is heads or tails. Match the computers random choice.")
+print("You will start with 100 in the bank. ")
+print(bank())
 
